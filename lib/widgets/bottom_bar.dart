@@ -1,44 +1,20 @@
-import 'package:createnew/screens/.dart';
-import 'package:createnew/screens/tasks_screen.dart';
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomBottomBar extends StatefulWidget {
-  const CustomBottomBar({super.key});
+  final ValueChanged<int> onClicked;
+  const CustomBottomBar({
+    super.key,
+    required this.onClicked,
+  });
 
   @override
   State<CustomBottomBar> createState() => _CustomBottomBarState();
 }
 
 class _CustomBottomBarState extends State<CustomBottomBar> {
-  List<Widget> screens = [
-    const Scaffold(
-      body: SafeArea(
-        child: Text("Hello world"),
-      ),
-    ),
-    const TasksScreen(),
-    const HappeningsScreen(),
-    const Scaffold(
-      body: SafeArea(
-        child: Text("Hello world"),
-      ),
-    ),
-  ];
   int currentIndex = 0;
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  void _selectPage(int index) {
-    setState(() {
-      currentIndex = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +29,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
             color: Colors.yellow,
             child: InkWell(
               onTap: () {
-                _selectPage(0);
+                widget.onClicked(0);
               },
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,

@@ -1,3 +1,5 @@
+import 'package:createnew/screens/happenings_screen.dart';
+import 'package:createnew/screens/tasks_screen.dart';
 import 'package:createnew/widgets/bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -34,22 +36,41 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int selectedIndex = 2;
+
+  List<Widget> screens = [
+    const Scaffold(
+      body: SafeArea(
+        child: Text("Attendence"),
+      ),
+    ),
+    const TasksScreen(),
+    const HappeningsScreen(),
+    const Scaffold(
+      body: SafeArea(
+        child: Text("Claim"),
+      ),
+    ),
+    const Scaffold(
+      body: SafeArea(
+        child: Text("Leave"),
+      ),
+    ),
+  ];
+
+  void onClicked(int index) {
+    setState(() {
+      selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Container(
-          alignment: Alignment.center,
-          height: 80,
-          width: 80,
-          decoration: BoxDecoration(border: Border.all(width: 2)),
-          child: const Text(
-            "Hello",
-            style: TextStyle(fontSize: 30),
-          ),
-        ),
+      body: Center(child: screens.elementAt(selectedIndex)),
+      bottomNavigationBar: CustomBottomBar(
+        onClicked: onClicked,
       ),
-      bottomNavigationBar: const CustomBottomBar(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: SizedBox(
         width: 65.h,

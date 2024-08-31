@@ -12,7 +12,7 @@ class _HappeningsScreenState extends State<HappeningsScreen> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SafeArea(
-        child: Text("Hello world"),
+        child: Text("Happenings"),
       ),
     );
   }
