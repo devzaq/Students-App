@@ -16,7 +16,7 @@ class _HappeningsScreenState extends State<HappeningsScreen> {
         title: "Happenings",
       ),
       body: SafeArea(
-        child: Text("Happenings"),
+        child: Center(child: Text("Happenings")),
       ),
     );
   }

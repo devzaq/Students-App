@@ -28,7 +28,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
             color: Colors.yellow,
             child: InkWell(
               onTap: () {
-                widget.onClicked(0);
+                widget.onClicked(1);
               },
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,

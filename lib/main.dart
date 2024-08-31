@@ -1,7 +1,6 @@
 import 'package:createnew/screens/happenings_screen.dart';
 import 'package:createnew/screens/tasks_screen.dart';
 import 'package:createnew/widgets/bottom_bar.dart';
-import 'package:createnew/widgets/custom_appbar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
