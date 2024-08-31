@@ -17,21 +17,24 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
 
   @override
   Widget build(BuildContext context) {
-    return BottomAppBar(
-      height: 69.h,
-      shape: const CircularNotchedRectangle(),
-      notchMargin: 15.r,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Container(
-            color: Colors.yellow,
-            child: InkWell(
+    return SafeArea(
+      child: BottomAppBar(
+        padding: EdgeInsets.zero,
+        color: Colors.amber,
+        height: 69.h,
+        shape: const CircularNotchedRectangle(),
+        notchMargin: 15.r,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            InkWell(
               onTap: () {
-                widget.onClicked(1);
+                currentIndex = 0;
+                widget.onClicked(0);
               },
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
                     width: 30.26.w,
@@ -48,12 +51,78 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
                 ],
               ),
             ),
-          ),
-          Image.asset("assets/Attendance.png"),
-          SizedBox(width: 90.w),
-          Image.asset("assets/Attendance.png"),
-          Image.asset("assets/Attendance.png"),
-        ],
+            InkWell(
+              onTap: () {
+                currentIndex = 1;
+                widget.onClicked(1);
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    width: 35.72.w,
+                    height: 22.44.h,
+                    "assets/Project.png",
+                    color: 1 == currentIndex
+                        ? const Color(0xff1F79A4)
+                        : Colors.white,
+                  ),
+                  const Text(
+                    "Tasks",
+                    style: TextStyle(fontSize: 10),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(width: 90.w),
+            InkWell(
+              onTap: () {
+                currentIndex = 3;
+                widget.onClicked(3);
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    width: 30.26.w,
+                    height: 36.65.h,
+                    "assets/Expenses.png",
+                    color: 3 == currentIndex
+                        ? const Color(0xff1F79A4)
+                        : Colors.white,
+                  ),
+                  const Text(
+                    "Claim",
+                    style: TextStyle(fontSize: 10),
+                  )
+                ],
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                currentIndex = 4;
+                widget.onClicked(4);
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    width: 30.26.w,
+                    height: 36.65.h,
+                    "assets/Leave.png",
+                    color: 4 == currentIndex
+                        ? const Color(0xff1F79A4)
+                        : Colors.black,
+                  ),
+                  const Text(
+                    "Leave",
+                    style: TextStyle(fontSize: 10),
+                  )
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
