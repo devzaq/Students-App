@@ -20,7 +20,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
     return SafeArea(
       child: BottomAppBar(
         padding: EdgeInsets.zero,
-        color: Colors.amber,
+        // color: Colors.amber,
         height: 69.h,
         shape: const CircularNotchedRectangle(),
         notchMargin: 15.r,
@@ -42,7 +42,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
                     "assets/Attendance.png",
                     color: 0 == currentIndex
                         ? const Color(0xff1F79A4)
-                        : Colors.black,
+                        : Colors.black45,
                   ),
                   const Text(
                     "Attendence",
@@ -65,7 +65,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
                     "assets/Project.png",
                     color: 1 == currentIndex
                         ? const Color(0xff1F79A4)
-                        : Colors.white,
+                        : Colors.black45,
                   ),
                   const Text(
                     "Tasks",
@@ -74,7 +74,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
                 ],
               ),
             ),
-            SizedBox(width: 90.w),
+            SizedBox(width: 60.w),
             InkWell(
               onTap: () {
                 currentIndex = 3;
@@ -89,7 +89,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
                     "assets/Expenses.png",
                     color: 3 == currentIndex
                         ? const Color(0xff1F79A4)
-                        : Colors.white,
+                        : Colors.black45,
                   ),
                   const Text(
                     "Claim",
@@ -112,7 +112,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
                     "assets/Leave.png",
                     color: 4 == currentIndex
                         ? const Color(0xff1F79A4)
-                        : Colors.black,
+                        : Colors.black45,
                   ),
                   const Text(
                     "Leave",
