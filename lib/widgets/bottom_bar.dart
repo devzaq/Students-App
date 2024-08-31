@@ -1,3 +1,5 @@
+import 'package:createnew/screens/.dart';
+import 'package:createnew/screens/tasks_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -11,28 +13,24 @@ class CustomBottomBar extends StatefulWidget {
 }
 
 class _CustomBottomBarState extends State<CustomBottomBar> {
-  late List<Map<String, Object>> _pages;
+  List<Widget> screens = [
+    const Scaffold(
+      body: SafeArea(
+        child: Text("Hello world"),
+      ),
+    ),
+    const TasksScreen(),
+    const HappeningsScreen(),
+    const Scaffold(
+      body: SafeArea(
+        child: Text("Hello world"),
+      ),
+    ),
+  ];
   int currentIndex = 0;
 
   @override
   void initState() {
-    _pages = [
-      {
-        // 'page': Home(),
-      },
-      {
-        // 'page': Feeds(),
-      },
-      {
-        // 'page': Search(),
-      },
-      {
-        // 'page': Cart(),
-      },
-      {
-        // 'page': UserInfo(),
-      },
-    ];
     super.initState();
   }
 
@@ -53,22 +51,27 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
         children: [
           Container(
             color: Colors.yellow,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Image.asset(
-                  width: 30.26.w,
-                  height: 36.65.h,
-                  "assets/Attendance.png",
-                  color: 0 == currentIndex
-                      ? const Color(0xff1F79A4)
-                      : Colors.black,
-                ),
-                const Text(
-                  "Attendence",
-                  style: TextStyle(fontSize: 10),
-                )
-              ],
+            child: InkWell(
+              onTap: () {
+                _selectPage(0);
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Image.asset(
+                    width: 30.26.w,
+                    height: 36.65.h,
+                    "assets/Attendance.png",
+                    color: 0 == currentIndex
+                        ? const Color(0xff1F79A4)
+                        : Colors.black,
+                  ),
+                  const Text(
+                    "Attendence",
+                    style: TextStyle(fontSize: 10),
+                  )
+                ],
+              ),
             ),
           ),
           Image.asset("assets/Attendance.png"),
