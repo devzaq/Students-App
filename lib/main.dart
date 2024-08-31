@@ -1,6 +1,7 @@
 import 'package:createnew/screens/happenings_screen.dart';
 import 'package:createnew/screens/tasks_screen.dart';
 import 'package:createnew/widgets/bottom_bar.dart';
+import 'package:createnew/widgets/custom_appbar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -41,19 +42,19 @@ class _HomePageState extends State<HomePage> {
   List<Widget> screens = [
     const Scaffold(
       body: SafeArea(
-        child: Text("Attendence"),
+        child: Center(child: Text("Attendence")),
       ),
     ),
     const TasksScreen(),
     const HappeningsScreen(),
     const Scaffold(
       body: SafeArea(
-        child: Text("Claim"),
+        child: Center(child: Text("Claim")),
       ),
     ),
     const Scaffold(
       body: SafeArea(
-        child: Text("Leave"),
+        child: Center(child: Text("Leave")),
       ),
     ),
   ];
@@ -67,7 +68,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: screens.elementAt(selectedIndex)),
+      body: screens.elementAt(selectedIndex),
       bottomNavigationBar: CustomBottomBar(
         onClicked: onClicked,
       ),
@@ -78,7 +79,9 @@ class _HomePageState extends State<HomePage> {
         child: FittedBox(
           child: FloatingActionButton(
             shape: const CircleBorder(),
-            onPressed: () {},
+            onPressed: () {
+              onClicked(2);
+            },
             child: Image.asset("assets/Valluva.png"),
           ),
         ),
